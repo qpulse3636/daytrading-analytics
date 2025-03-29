@@ -154,7 +154,7 @@ function App() {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">Built by Traders, for Traders</h3>
-              <p className="text-slate-400">Join our community of successful traders and take your trading to the next level.</p>
+              <p className="text-slate-400">Join our community of successful traders and take your trading to the next level</p>
               <div className="flex gap-4 mt-6">
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
                   <Twitter size={24} />

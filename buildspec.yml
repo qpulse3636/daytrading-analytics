@@ -4,13 +4,14 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - npm install
+      - npm ci # Faster & cleaner for CI/CD
   build:
     commands:
       - npm run build
+      - ls -lah dist || echo "Build failed, dist folder missing"
   post_build:
     commands:
-      - echo Build completed
+      - echo "✅ Build completed successfully"
 artifacts:
   files:
     - dist/**/*

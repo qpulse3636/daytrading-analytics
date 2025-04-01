@@ -13,7 +13,7 @@ phases:
     commands:
       - echo "✅ Build completed successfully"
       # Retrieve the SSH key from AWS Secrets Manager
-      - aws secretsmanager get-secret-value --secret-id prod/nginx/key --query SecretString --output text > /tmp/ec2-key.pem
+      - aws secretsmanager get-secret-value --secret-id my-ec2-key --query SecretString --output text > /tmp/ec2-key.pem
       - chmod 400 /tmp/ec2-key.pem
       # Deploy the build artifacts to EC2
       - echo "Deploying build artifacts to EC2"

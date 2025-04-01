@@ -17,8 +17,8 @@ phases:
       - chmod 400 /tmp/ec2-key.pem
       # Deploy the build artifacts to EC2
       - echo "Deploying build artifacts to EC2"
-      - scp -i /tmp/ec2-key.pem -r dist/* ec2-user@3.95.38.137:/home/ec2-user/app
-      - ssh -i /tmp/ec2-key.pem ec2-user@3.95.38.137 << EOF
+      - scp -o StrictHostKeyChecking=no -i /tmp/ec2-key.pem -r dist/* ec2-user@3.95.38.137:/home/ec2-user/app
+      - ssh -o StrictHostKeyChecking=no -i /tmp/ec2-key.pem ec2-user@3.95.38.137 << EOF
           cd /home/ec2-user/app
           pm2 restart app || pm2 start 'serve -s . -l 3000' --name app
         EOF

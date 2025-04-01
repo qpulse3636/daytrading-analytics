@@ -18,10 +18,8 @@ phases:
       # Deploy the build artifacts to EC2
       - echo "Deploying build artifacts to EC2"
       - scp -o StrictHostKeyChecking=no -i /tmp/ec2-key.pem -r dist/* ec2-user@3.95.38.137:/home/ec2-user/app
-      - ssh -o StrictHostKeyChecking=no -i /tmp/ec2-key.pem ec2-user@3.95.38.137 << EOF
-          cd /home/ec2-user/app
-          pm2 restart app || pm2 start 'serve -s . -l 3000' --name app
-        EOF
+      - ssh -o StrictHostKeyChecking=no -i /tmp/ec2-key.pem ec2-user@3.95.38.137 "cd /home/ec2-user/app && pm2 restart app || pm2 start 'serve -s . -l 3000' --name app"
+
 artifacts:
   files:
     - dist/**/* # The build output
